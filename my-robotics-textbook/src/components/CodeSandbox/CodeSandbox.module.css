@@ -1,0 +1,90 @@
+.codeSandboxContainer {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  margin: var(--ifm-leading);
+  padding: 0;
+  overflow: hidden;
+}
+
+.codeSandboxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.codeSandboxHeader h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.languageSelect {
+  min-width: 120px;
+}
+
+.runButton {
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+}
+
+.codeEditor {
+  position: relative;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: none;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: var(--ifm-color-emphasis-100);
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--ifm-color-primary);
+}
+
+.codeOutput {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  padding: 1rem;
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.codeOutput h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.outputText {
+  margin: 0;
+  padding: 0.5rem;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  overflow-x: auto;
+  min-height: 60px;
+}
+
+@media (max-width: 768px) {
+  .codeSandboxHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .runButton {
+    align-self: flex-end;
+  }
+}

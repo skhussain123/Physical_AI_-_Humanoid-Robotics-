@@ -1,0 +1,51 @@
+```mermaid
+graph TB
+    subgraph "Robotics Textbook System"
+        A[Frontend: Docusaurus] --> B[Interactive Components]
+        B --> C[Code Execution Service]
+        B --> D[Progress Tracking Service]
+
+        subgraph "Interactive Components"
+            E[CodeSandbox]
+            F[ProgressTracker]
+            G[CertificateDisplay]
+            H[SimulationViewer]
+        end
+
+        subgraph "Services"
+            I[CodeExecutionService]
+            J[ProgressService]
+        end
+
+        subgraph "Content Structure"
+            K[ROS 2 Module]
+            L[Gazebo Module]
+            M[NVIDIA Isaac Module]
+            N[AI-Driven Robotics Module]
+        end
+
+        subgraph "User Features"
+            O[User Dashboard]
+            P[Authentication]
+            Q[Certificates]
+        end
+    end
+
+    A --> K
+    A --> L
+    A --> M
+    A --> N
+
+    C --> I
+    D --> J
+
+    O --> F
+    O --> G
+    P --> O
+    J --> Q
+
+    style A fill:#4285F4,stroke:#1a73e8,stroke-width:2px
+    style B fill:#34A853,stroke:#137333,stroke-width:2px
+    style I fill:#EA4335,stroke:#d33b2c,stroke-width:2px
+    style J fill:#EA4335,stroke:#d33b2c,stroke-width:2px
+```

@@ -1,0 +1,149 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Robotics textbook color scheme */
+:root {
+  --ifm-color-primary: #1a73e8; /* Modern blue for tech/robotics */
+  --ifm-color-primary-dark: #1865d0;
+  --ifm-color-primary-darker: #1658b7;
+  --ifm-color-primary-darkest: #124795;
+  --ifm-color-primary-light: #3b8cff;
+  --ifm-color-primary-lighter: #62a0ff;
+  --ifm-color-primary-lightest: #88bbff;
+  --ifm-color-secondary: #424242;
+  --ifm-color-success: #0f9d58;
+  --ifm-color-info: #03a9f4;
+  --ifm-color-warning: #ff8800;
+  --ifm-color-danger: #db4437;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom variables for robotics theme */
+  --robotics-accent: #00bcd4; /* Cyan accent for robotics elements */
+  --robotics-dark-bg: #1e1e1e;
+  --robotics-light-bg: #f8f9fa;
+  --robotics-text: #212121;
+  --robotics-text-light: #757575;
+}
+
+/* Enhanced dark mode for robotics textbook */
+[data-theme='dark'] {
+  --ifm-color-primary: #4285f4;
+  --ifm-color-primary-dark: #2a75f3;
+  --ifm-color-primary-darker: #1a68f2;
+  --ifm-color-primary-darkest: #0d5bdb;
+  --ifm-color-primary-light: #5a96f5;
+  --ifm-color-primary-lighter: #74a8f6;
+  --ifm-color-primary-lightest: #8ebaf7;
+  --ifm-color-secondary: #bdbdbd;
+  --ifm-color-success: #34a853;
+  --ifm-color-info: #57b0ff;
+  --ifm-color-warning: #ff9800;
+  --ifm-color-danger: #ea4335;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Dark mode specific variables */
+  --robotics-accent: #00bcd4;
+  --robotics-dark-bg: #121212;
+  --robotics-light-bg: #2d2d2d;
+  --robotics-text: #e0e0e0;
+  --robotics-text-light: #b0b0b0;
+}
+
+/* Custom styling for robotics textbook */
+.hero--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #0d6efd 100%);
+}
+
+/* Code block styling */
+.codeBlockContainer_node_modules-\@docusaurus-theme-classic-lib-theme-CodeBlock-Container-styles-module {
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+/* Custom card styling for modules */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom button styling */
+.button--primary {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+/* Accessibility enhancements */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-color-emphasis-0: #000;
+    --ifm-color-emphasis-100: #111;
+    --ifm-color-emphasis-200: #222;
+    --ifm-color-emphasis-300: #333;
+    --ifm-color-emphasis-400: #444;
+    --ifm-color-emphasis-500: #555;
+    --ifm-color-emphasis-600: #666;
+    --ifm-color-emphasis-700: #777;
+    --ifm-color-emphasis-800: #888;
+    --ifm-color-emphasis-900: #999;
+    --ifm-color-emphasis-1000: #fff;
+  }
+
+  [data-theme='dark'] {
+    --ifm-color-emphasis-0: #fff;
+    --ifm-color-emphasis-100: #eee;
+    --ifm-color-emphasis-200: #ddd;
+    --ifm-color-emphasis-300: #ccc;
+    --ifm-color-emphasis-400: #bbb;
+    --ifm-color-emphasis-500: #aaa;
+    --ifm-color-emphasis-600: #999;
+    --ifm-color-emphasis-700: #888;
+    --ifm-color-emphasis-800: #777;
+    --ifm-color-emphasis-900: #666;
+    --ifm-color-emphasis-1000: #000;
+  }
+}
+
+/* Responsive design for different screen sizes */
+@media (max-width: 996px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+}
