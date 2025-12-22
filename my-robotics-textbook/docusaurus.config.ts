@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-robotics-textbook-site.example.com',
+  url: 'https://physical-ai-humanoid-robotics-gamma-ten.vercel.app/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -36,6 +36,16 @@ const config: Config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        filename: 'sitemap.xml',
+      },
+    ],
+  ],
   presets: [
     [
       'classic',
@@ -74,7 +84,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/your-org/my-robotics-textbook',
+          href: 'https://github.com/skhussain123/Physical_AI_-_Humanoid-Robotics-/tree/main/my-robotics-textbook',
           label: 'GitHub',
           position: 'right',
         },
