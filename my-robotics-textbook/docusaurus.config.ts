@@ -26,18 +26,22 @@ const config: Config = {
   projectName: 'my-robotics-textbook', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   markdown: {
     format: 'mdx',
     mermaid: false,
-    remarkPlugins: [],
-    rehypePlugins: [],
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
     parseFrontMatter: undefined,
     mdx1Compat: {
       comments: true,
       admonitions: true,
       headingIds: true,
     },
+  },
+  customFields: {
+    remarkPlugins: [],
+    rehypePlugins: [],
   },
 
   // Even if you don't use internationalization, you can use this field to set
@@ -111,11 +115,11 @@ const config: Config = {
             },
             {
               label: 'ROS 2 Module',
-              to: '/docs/module1-ros2/chapter1',
+              to: '/docs/module1/chapter1',
             },
             {
               label: 'Gazebo/Unity Module',
-              to: '/docs/module2-gazebo/chapter1',
+              to: '/docs/module2/chapter1',
             },
           ],
         },

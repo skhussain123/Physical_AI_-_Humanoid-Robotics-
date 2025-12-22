@@ -1,0 +1,36 @@
+.admonition {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-left: 0.25rem solid;
+}
+
+.admonition h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.admonition--info {
+  background-color: #e7f3ff;
+  border-left-color: #2e86ab;
+}
+
+.admonition--success {
+  background-color: #e6f4ea;
+  border-left-color: #0d652d;
+}
+
+.admonition--primary {
+  background-color: #e9ecef;
+  border-left-color: #6c757d;
+}
+
+.admonition--secondary {
+  background-color: #f8f9fa;
+  border-left-color: #6c757d;
+}
+
+.admonition--warning {
+  background-color: #fef7e6;
+  border-left-color: #f59f00;
+}
