@@ -8,7 +8,7 @@ interface Message {
   timestamp: string; // ✅ string (ISO)
 }
 
-const API_URL = 'http://127.0.0.3:8001';
+const API_URL = 'https://muhammadhussain2321-rag-backend.hf.space/';
 const STORAGE_KEY = 'robotics_chat_messages';
 
 const ChatWidget: React.FC = () => {
