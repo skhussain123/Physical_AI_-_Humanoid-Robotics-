@@ -1,0 +1,47 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d5a87;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3182ce;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#63b3ed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#grad1)" stroke="#2c5282" stroke-width="2"/>
+
+  <!-- Robot head -->
+  <rect x="60" y="60" width="80" height="50" rx="10" fill="url(#grad2)" stroke="#1a365d" stroke-width="2"/>
+
+  <!-- Robot eyes -->
+  <circle cx="80" cy="80" r="6" fill="#ffffff"/>
+  <circle cx="120" cy="80" r="6" fill="#ffffff"/>
+  <circle cx="80" cy="80" r="3" fill="#1a365d"/>
+  <circle cx="120" cy="80" r="3" fill="#1a365d"/>
+
+  <!-- Robot mouth -->
+  <rect x="90" y="95" width="20" height="5" rx="2" fill="#ffffff"/>
+
+  <!-- Antenna -->
+  <line x1="100" y1="60" x2="100" y2="40" stroke="#1a365d" stroke-width="3"/>
+  <circle cx="100" cy="35" r="5" fill="#e53e3e"/>
+
+  <!-- Body -->
+  <rect x="70" y="110" width="60" height="40" rx="5" fill="url(#grad2)" stroke="#1a365d" stroke-width="2"/>
+
+  <!-- Arms -->
+  <line x1="70" y1="120" x2="50" y2="130" stroke="#1a365d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="130" y1="120" x2="150" y2="130" stroke="#1a365d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Legs -->
+  <line x1="85" y1="150" x2="85" y2="170" stroke="#1a365d" stroke-width="4" stroke-linecap="round"/>
+  <line x1="115" y1="150" x2="115" y2="170" stroke="#1a365d" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Circuit pattern -->
+  <path d="M65 130 Q70 125 75 130" stroke="#63b3ed" stroke-width="1" fill="none"/>
+  <path d="M125 130 Q130 125 135 130" stroke="#63b3ed" stroke-width="1" fill="none"/>
+  <path d="M95 140 Q100 135 105 140" stroke="#63b3ed" stroke-width="1" fill="none"/>
+</svg>

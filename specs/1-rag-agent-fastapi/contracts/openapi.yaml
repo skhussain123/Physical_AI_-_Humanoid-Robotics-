@@ -1,0 +1,213 @@
+openapi: 3.0.3
+info:
+  title: RAG Agent Backend for Physical AI & Humanoid Robotics Textbook
+  description: AI tutoring agent API that answers questions based on textbook content using RAG (Retrieval-Augmented Generation)
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+    description: Local development server
+paths:
+  /check:
+    get:
+      summary: Health check endpoint
+      description: Returns a simple health status message to confirm the service is running
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Hello World"
+                    description: Simple confirmation message
+                  status:
+                    type: string
+                    example: "healthy"
+                    description: Health status of the service
+        '500':
+          description: Service is unhealthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Service unavailable"
+                    description: Error message explaining the issue
+  /ask:
+    post:
+      summary: Ask a question to the AI tutor
+      description: Submit a question about the Physical AI & Humanoid Robotics textbook content and receive an AI-generated response based on retrieved knowledge
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  minLength: 1
+                  maxLength: 1000
+                  example: "What is physical AI?"
+                  description: The question to ask the AI tutor about the textbook content
+                timeout:
+                  type: integer
+                  minimum: 1
+                  maximum: 60
+                  default: 30
+                  example: 30
+                  description: Maximum time to wait for response in seconds
+      responses:
+        '200':
+          description: Successful response from the AI tutor
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                    example: "Physical AI refers to the integration of artificial intelligence with physical systems, enabling machines to perceive, reason, and act in the physical world."
+                    description: The AI-generated response to the query
+                  status:
+                    type: string
+                    enum: [success, no_content]
+                    example: "success"
+                    description: Status of the response
+                  metadata:
+                    type: object
+                    properties:
+                      source_documents:
+                        type: array
+                        items:
+                          type: string
+                        example: ["Chapter 1: Introduction to Physical AI", "Section 2.3: Physical Intelligence"]
+                        description: List of source documents used to generate the response
+                      confidence:
+                        type: number
+                        minimum: 0
+                        maximum: 1
+                        example: 0.85
+                        description: Confidence level of the response
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Query is required and must be between 1-1000 characters"
+                    description: Error message explaining the validation issue
+        '422':
+          description: Unprocessable entity - validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        loc:
+                          type: array
+                          items:
+                            type: string
+                          example: ["body", "query"]
+                          description: Location of the validation error
+                        msg:
+                          type: string
+                          example: "Field required"
+                          description: Validation error message
+                        type:
+                          type: string
+                          example: "value_error.missing"
+                          description: Type of validation error
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Internal server error occurred while processing the query"
+                    description: Error message explaining the issue
+        '503':
+          description: Service unavailable - external dependencies failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "External service unavailable"
+                    description: Error message explaining the dependency issue
+components:
+  schemas:
+    QueryRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          minLength: 1
+          maxLength: 1000
+          example: "What is physical AI?"
+          description: The question to ask the AI tutor about the textbook content
+        timeout:
+          type: integer
+          minimum: 1
+          maximum: 60
+          default: 30
+          example: 30
+          description: Maximum time to wait for response in seconds
+    QueryResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          example: "Physical AI refers to the integration of artificial intelligence with physical systems, enabling machines to perceive, reason, and act in the physical world."
+          description: The AI-generated response to the query
+        status:
+          type: string
+          enum: [success, no_content]
+          example: "success"
+          description: Status of the response
+        metadata:
+          type: object
+          properties:
+            source_documents:
+              type: array
+              items:
+                type: string
+            confidence:
+              type: number
+              minimum: 0
+              maximum: 1
+              example: 0.85
+              description: Confidence level of the response
+    HealthResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: "Hello World"
+          description: Simple confirmation message
+        status:
+          type: string
+          example: "healthy"
+          description: Health status of the service

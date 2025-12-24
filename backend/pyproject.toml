@@ -1,0 +1,17 @@
+[project]
+name = "rag-agent-backend"
+version = "0.1.0"
+description = "RAG Agent Backend with FastAPI Integration for AI Tutoring"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "cohere>=5.20.1",
+    "openai-agents>=0.6.4",
+    "qdrant-client>=1.16.2",
+    "requests>=2.32.5",
+    "trafilatura>=2.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.9.2",
+    "python-dotenv>=1.0.1",
+]
