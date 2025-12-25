@@ -5,10 +5,10 @@ interface Message {
   id: string;
   text: string;
   sender: 'user' | 'ai';
-  timestamp: string; // ✅ string (ISO)
+  timestamp: string;
 }
 
-const API_URL = 'https://muhammadhussain2321-rag-backend.hf.space/';
+const API_URL = 'https://muhammadhussain2321-rag-backend.hf.space';
 const STORAGE_KEY = 'robotics_chat_messages';
 
 const ChatWidget: React.FC = () => {
@@ -59,10 +59,11 @@ const ChatWidget: React.FC = () => {
       });
 
       const data = await res.json();
+      console.log('AI Response:', data);
 
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.answer ?? 'No response from AI.',
+        text: data.answer || data.result || data.response || 'No response from AI.',
         sender: 'ai',
         timestamp: new Date().toISOString(),
       };

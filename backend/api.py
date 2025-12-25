@@ -9,6 +9,7 @@ from agents import (
     AsyncOpenAI,
     set_tracing_disabled,
     function_tool,
+    ModelSettings
 )
 
 import os
@@ -34,17 +35,17 @@ app.add_middleware(
 )
 
 # ----------------------------------
-# Gemini (via OpenAI-compatible API)
+# Grok (via OpenAI-compatible API)
 # ----------------------------------
-gemini_api_key = os.getenv("GEMINI_API_KEY", "AIzaSyDvpLEvKoaFjhVRoCrtfaVEM1v6sD0pzbA")
+grok_api_key = os.getenv("OPENROUTER_API_KEY", "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")
 
 provider = AsyncOpenAI(
-    api_key=gemini_api_key,
-    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    api_key=grok_api_key,
+    base_url="https://openrouter.ai/api/v1",
 )
 
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.5-flash",
+    model="meta-llama/llama-3.1-8b-instruct",
     openai_client=provider,
 )
 
@@ -100,6 +101,7 @@ Steps:
 """,
     model=model,
     tools=[retrieve],
+    model_settings=ModelSettings(tool_choice="required")
 )
 
 # ----------------------------------
